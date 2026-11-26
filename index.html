@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sossa Kissalu — La Clé de l'Emploi | Emploi &amp; Formation</title>
+  <meta name="description" content="Sossa Kissalu — La Clé de l'Emploi : plateforme dédiée à l'employabilité, au recrutement et à la formation pratique à Pointe-Noire et au Congo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --emerald-bg: #064e31;
+      --emerald-deep: #043822;
+      --emerald-mid: #0b6e43;
+      --emerald-panel: #085938;
+      --gold: #d4af37;
+      --gold-bright: #f4e3a1;
+      --card-surface: #f7fbf9;
+      --text-on-green: #ffffff;
+      --text-on-green-soft: rgba(255, 255, 255, 0.88);
+      --text-dark: #0f241a;
+      --text-muted: #425c50;
+      --shadow-green: 0 14px 32px rgba(2, 28, 17, 0.35);
+      --shadow-gold: 0 10px 24px rgba(212, 175, 55, 0.25);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--emerald-bg);
+      color: var(--text-on-green);
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    code {
+      background: rgba(212, 175, 55, 0.16);
+      color: var(--gold-bright);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.88em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* EN-TÊTE & NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 56, 34, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      padding: 10px 0;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 7px 11px;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.9);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(212, 175, 55, 0.16);
+      color: var(--gold-bright);
+    }
+
+    /* BOUTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #e2c044 0%, var(--gold) 100%);
+      color: #0b2418;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-emerald {
+      background: var(--emerald-mid);
+      color: #ffffff;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-emerald:hover {
+      background: #0e824f;
+    }
+
+    .btn-outline-gold {
+      border: 1.5px solid rgba(212, 175, 55, 0.65);
+      color: var(--gold-bright);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-outline-gold:hover {
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0 72px;
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 45%),
+                  linear-gradient(180deg, var(--emerald-bg) 0%, var(--emerald-deep) 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.16);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      color: var(--gold-bright);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.95rem, 3.8vw, 3rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.04rem;
+      color: var(--text-on-green-soft);
+      max-width: 630px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+    }
+
+    .hero-contacts a:hover {
+      text-decoration: underline;
+    }
+
+    .logo-showcase {
+      background: var(--emerald-panel);
+      border: 1.5px solid rgba(212, 175, 55, 0.5);
+      border-radius: 22px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: var(--shadow-green);
+    }
+
+    .logo-showcase img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin: 0 auto 14px;
+      display: block;
+      background: #ffffff;
+      border-radius: 50%;
+      padding: 6px;
+      border: 3px solid var(--gold);
+    }
+
+    /* SECTIONS & GRILLES */
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+    }
+
+    section.alt-band {
+      background: var(--emerald-deep);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 42px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 2.9vw, 2.25rem);
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .section-header h2 span {
+      color: var(--gold);
+    }
+
+    .section-header p {
+      color: var(--text-on-green-soft);
+      font-size: 1rem;
+    }
+
+    /* BOÎTE QUI NOUS SOMMES */
+    .about-box {
+      background: var(--card-surface);
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 2px solid var(--gold);
+      box-shadow: var(--shadow-green);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .about-box p {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .about-item {
+      background: #e9f4ee;
+      border-left: 4px solid var(--gold);
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+
+    .about-item strong {
+      display: block;
+      color: var(--emerald-bg);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .about-item span {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* GRILLES & CARTES */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-surface);
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-green);
+      border: 1.5px solid rgba(212, 175, 55, 0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      font-size: 1.14rem;
+      color: var(--emerald-bg);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--emerald-bg);
+      color: var(--gold-bright);
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .article-img {
+      width: 100%;
+      height: 205px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      display: block;
+      border: 1px solid rgba(6, 78, 49, 0.15);
+    }
+
+    /* GALERIE PHOTOS */
+    .gallery-card {
+      background: var(--card-surface);
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-green);
+      border: 1.5px solid rgba(212, 175, 55, 0.45);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 16px 18px;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--emerald-bg);
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .gallery-caption span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--emerald-deep);
+      color: var(--text-on-green-soft);
+      padding: 42px 0 26px;
+      font-size: 0.9rem;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-weight: 600;
+      color: var(--gold-bright);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 18px;
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .about-highlights,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- EN-TÊTE -->
+  <header>
+    <div class="container nav">
+      <a href="#accueil" class="brand">
+        <img src="logo-sossa-kissalu.png" alt="Logo officiel Sossa Kissalu — La Clé de l'Emploi" />
+        <div class="brand-text">
+          <strong>SOSSA KISSALU</strong>
+          <span>La Clé de l'Emploi</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#qui-nous-sommes">Qui nous sommes</a>
+        <a href="#offres">Offres (5)</a>
+        <a href="#cvs">CV (5)</a>
+        <a href="#actualites">Actualités &amp; Annonces</a>
+        <a href="#galerie">Galerie photos</a>
+      </nav>
+
+      <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20souhaite%20avoir%20des%20informations." target="_blank" rel="noopener" class="btn btn-gold">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- SECTION 1 : ACCUEIL (HERO) -->
+  <section id="accueil" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Plateforme Emploi &amp; Formation • Pointe-Noire &amp; Congo</span>
+        <h1>Ouvrez les portes de votre avenir avec <span>Sossa Kissalu</span>.</h1>
+        <p>
+          Offres d'emploi, publication de CV, actualités &amp; annonces de formation et galerie photos réunis sur une seule plateforme aux couleurs officielles de Sossa Kissalu.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#offres" class="btn btn-gold">Voir les 5 offres d'emploi</a>
+          <a href="#cvs" class="btn btn-outline-gold">Voir les 5 CV</a>
+          <a href="https://www.linkedin.com/company/sossa-kissalu/" target="_blank" rel="noopener" class="btn btn-emerald">
+            LinkedIn Sossa Kissalu
+          </a>
+        </div>
+
+        <div class="hero-contacts">
+          <a href="https://wa.me/242044190188" target="_blank" rel="noopener">WhatsApp : +242 044 19 01 88</a>
+          <a href="tel:+242068202822">Téléphone : +242 068 20 28 22</a>
+        </div>
+      </div>
+
+      <div class="logo-showcase">
+        <img src="logo-sossa-kissalu.png" alt="Logo officiel Sossa Kissalu — La Clé de l'Emploi" />
+        <h3 style="color: var(--gold); margin-bottom: 6px;">Sossa Kissalu</h3>
+        <p style="font-size: 0.92rem; margin-bottom: 14px;">
+          WhatsApp : +242 044 19 01 88<br />
+          Téléphone : +242 068 20 28 22
+        </p>
+        <a href="tel:+242068202822" class="btn btn-gold" style="width: 100%;">Appeler le +242 068 20 28 22</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 : QUI NOUS SOMMES -->
+  <section id="qui-nous-sommes" class="alt-band">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Identité &amp; Mission</span>
+        <h2>Qui <span>nous sommes</span></h2>
+      </div>
+
+      <div class="about-box">
+        <p>
+          <strong>Sossa Kissalu — La Clé de l'Emploi</strong> est une plateforme dédiée à l'employabilité, au recrutement et à la formation pratique, ancrée à Pointe-Noire et ouverte à tout le Congo. Nous connectons les talents aux opportunités professionnelles, valorisons les profils (CV, visibilité, accompagnement) et proposons des formations concrètes pour aider chacun à saisir sa chance et réussir durablement.
+        </p>
+
+        <div class="about-highlights">
+          <div class="about-item">
+            <strong>Recrutement &amp; Opportunités</strong>
+            <span>Mise en relation rapide entre candidats, chercheurs d'emploi et employeurs.</span>
+          </div>
+          <div class="about-item">
+            <strong>Visibilité des Profils</strong>
+            <span>Valorisation des CV et accompagnement pour se démarquer auprès des recruteurs.</span>
+          </div>
+          <div class="about-item">
+            <strong>Formation Pratique</strong>
+            <span>Ateliers et parcours orientés terrain pour développer des compétences utiles.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 : OFFRES D'EMPLOI (5 EMPLACEMENTS) -->
+  <section id="offres">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Recrutement &amp; Stages</span>
+        <h2>Offres <span>d'emploi</span> (5 emplacements)</h2>
+        <p>Modifiez directement chacun des 5 blocs ci-dessous pour publier vos offres en cours.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- OFFRE 1 -->
+        <article class="card">
+          <div>
+            <span class="pill">Offre 1 • Pointe-Noire</span>
+            <h3>Chargé(e) Commercial &amp; Relation Client</h3>
+            <p>Prospection terrain et digitale, suivi du portefeuille client et développement des ventes.</p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20postule%20à%20l'Offre%201%20:%20Chargé(e)%20Commercial." target="_blank" rel="noopener" class="btn btn-gold">
+              Postuler sur WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- OFFRE 2 -->
+        <article class="card">
+          <div>
+            <span class="pill">Offre 2 • Digital</span>
+            <h3>Community Manager &amp; Créateur de Contenu</h3>
+            <p>Animation des réseaux sociaux, rédaction de publications et développement de l'engagement.</p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20postule%20à%20l'Offre%202%20:%20Community%20Manager." target="_blank" rel="noopener" class="btn btn-gold">
+              Postuler sur WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- OFFRE 3 -->
+        <article class="card">
+          <div>
+            <span class="pill">Offre 3 • Gestion</span>
+            <h3>Assistant(e) Administratif &amp; Logistique</h3>
+            <p>Gestion des dossiers, organisation administrative et coordination des opérations.</p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20postule%20à%20l'Offre%203%20:%20Assistant(e)%20Administratif." target="_blank" rel="noopener" class="btn btn-gold">
+              Postuler sur WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- OFFRE 4 -->
+        <article class="card">
+          <div>
+            <span class="pill">Offre 4 • Stage / Formation</span>
+            <h3>Stagiaire Marketing &amp; Communication</h3>
+            <p>Appui à la création de supports, veille sectorielle et suivi des campagnes locales.</p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20postule%20à%20l'Offre%204%20:%20Stagiaire%20Marketing." target="_blank" rel="noopener" class="btn btn-gold">
+              Postuler sur WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- OFFRE 5 -->
+        <article class="card">
+          <div>
+            <span class="pill">Offre 5 • Opportunité</span>
+            <h3>Conseiller(ère) Clientèle &amp; Accueil</h3>
+            <p>Accueil des visiteurs, orientation, traitement des demandes et fidélisation.</p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20postule%20à%20l'Offre%205%20:%20Conseiller(ère)%20Clientèle." target="_blank" rel="noopener" class="btn btn-gold">
+              Postuler sur WhatsApp
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 : PUBLICATION DES CV (5 EMPLACEMENTS) -->
+  <section id="cvs" class="alt-band">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Faites-vous démarquer</span>
+        <h2>Publication <span>des CV</span> (5 emplacements)</h2>
+        <p>Déposez vos fichiers PDF dans <code>cvs/</code> sur GitHub et reliez chaque carte au bon fichier (ex. <code>cvs/cv-1.pdf</code>).</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- CV 1 -->
+        <article class="card">
+          <div>
+            <span class="pill">CV 1 • Profil à la une</span>
+            <h3>Candidat 1 — Nom &amp; Prénom</h3>
+            <p>Intitulé du poste, expériences clés et disponibilité à Pointe-Noire ou au Congo.</p>
+          </div>
+          <div class="card-actions">
+            <a href="cvs/cv-1.pdf" target="_blank" rel="noopener" class="btn btn-emerald">CV 1 (PDF)</a>
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20infos%20sur%20le%20CV%201." target="_blank" rel="noopener" class="btn btn-gold">Contacter</a>
+          </div>
+        </article>
+
+        <!-- CV 2 -->
+        <article class="card">
+          <div>
+            <span class="pill">CV 2 • Profil à la une</span>
+            <h3>Candidat 2 — Nom &amp; Prénom</h3>
+            <p>Intitulé du poste, compétences principales et secteur d'activité recherché.</p>
+          </div>
+          <div class="card-actions">
+            <a href="cvs/cv-2.pdf" target="_blank" rel="noopener" class="btn btn-emerald">CV 2 (PDF)</a>
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20infos%20sur%20le%20CV%202." target="_blank" rel="noopener" class="btn btn-gold">Contacter</a>
+          </div>
+        </article>
+
+        <!-- CV 3 -->
+        <article class="card">
+          <div>
+            <span class="pill">CV 3 • Profil à la une</span>
+            <h3>Candidat 3 — Nom &amp; Prénom</h3>
+            <p>Intitulé du poste, parcours professionnel et atouts opérationnels.</p>
+          </div>
+          <div class="card-actions">
+            <a href="cvs/cv-3.pdf" target="_blank" rel="noopener" class="btn btn-emerald">CV 3 (PDF)</a>
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20infos%20sur%20le%20CV%203." target="_blank" rel="noopener" class="btn btn-gold">Contacter</a>
+          </div>
+        </article>
+
+        <!-- CV 4 -->
+        <article class="card">
+          <div>
+            <span class="pill">CV 4 • Profil à la une</span>
+            <h3>Candidat 4 — Nom &amp; Prénom</h3>
+            <p>Intitulé du poste, domaines d'expertise et mobilité professionnelle.</p>
+          </div>
+          <div class="card-actions">
+            <a href="cvs/cv-4.pdf" target="_blank" rel="noopener" class="btn btn-emerald">CV 4 (PDF)</a>
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20infos%20sur%20le%20CV%204." target="_blank" rel="noopener" class="btn btn-gold">Contacter</a>
+          </div>
+        </article>
+
+        <!-- CV 5 -->
+        <article class="card">
+          <div>
+            <span class="pill">CV 5 • Profil à la une</span>
+            <h3>Candidat 5 — Nom &amp; Prénom</h3>
+            <p>Intitulé du poste, réalisations notables et contact direct via la plateforme.</p>
+          </div>
+          <div class="card-actions">
+            <a href="cvs/cv-5.pdf" target="_blank" rel="noopener" class="btn btn-emerald">CV 5 (PDF)</a>
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20infos%20sur%20le%20CV%205." target="_blank" rel="noopener" class="btn btn-gold">Contacter</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 : ACTUALITÉS & ANNONCES -->
+  <section id="actualites">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Formations, Ateliers &amp; Infos</span>
+        <h2>Actualités <span>&amp; Annonces</span></h2>
+        <p>Partagez vos prochaines sessions de formation, annonces officielles et nouveautés.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- ACTUALITÉ 1 -->
+        <article class="card">
+          <div>
+            <img src="logo-sossa-kissalu.png" alt="Annonce formation Sossa Kissalu" class="article-img" style="object-fit: contain; background: #e8f5ef; padding: 14px;" />
+            <span class="pill">Formation &amp; Employabilité</span>
+            <h3>Sessions Pratiques : CV, Préparation Entretien &amp; LinkedIn</h3>
+            <p>
+              Renforcez votre employabilité grâce à des ateliers concrets conçus pour structurer votre candidature, gagner en assurance et valoriser votre profil.
+            </p>
+          </div>
+          <div class="card-actions">
+            <a href="https://wa.me/242044190188?text=Bonjour%20Sossa%20Kissalu%2C%20je%20souhaite%20des%20informations%20sur%20les%20formations." target="_blank" rel="noopener" class="btn btn-gold">
+              S'inscrire / Infos WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- ACTUALITÉ 2 -->
+        <article class="card">
+          <div>
+            <span class="pill">Communauté &amp; Réseau</span>
+            <h3>Suivez Sossa Kissalu sur LinkedIn</h3>
+            <p>
+              Retrouvez nos publications régulières, alertes emploi, conseils carrière et temps forts communautaires sur notre page officielle LinkedIn.
+            </p>
+          </div>
+          <div class="card-actions">
+            <a href="https://www.linkedin.com/company/sossa-kissalu/" target="_blank" rel="noopener" class="btn btn-emerald">
+              Ouvrir LinkedIn
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 : GALERIE PHOTOS -->
+  <section id="galerie" class="alt-band">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Moments forts</span>
+        <h2>Galerie <span>photos</span></h2>
+        <p>Ajoutez vos images dans le dossier <code>galerie/</code> sur GitHub et dupliquez une carte photo ci-dessous.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- PHOTO 1 -->
+        <div class="gallery-card">
+          <img src="logo-sossa-kissalu.png" alt="Logo officiel Sossa Kissalu — La Clé de l'Emploi" style="object-fit: contain; background: #e8f5ef; padding: 16px;" />
+          <div class="gallery-caption">
+            <strong>Identité Visuelle Sossa Kissalu</strong>
+            <span>La Clé de l'Emploi • Pointe-Noire</span>
+          </div>
+        </div>
+
+        <!-- EXEMPLE PHOTO 2 (Décommentez ou copiez après avoir ajouté galerie/photo-1.jpg) :
+        <div class="gallery-card">
+          <img src="galerie/photo-1.jpg" alt="Atelier ou formation Sossa Kissalu" />
+          <div class="gallery-caption">
+            <strong>Titre de la photo</strong>
+            <span>Lieu ou date de l'activité</span>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PIED DE PAGE -->
+  <footer>
+    <div class="container">
+      <div class="footer-flex">
+        <div class="brand">
+          <img src="logo-sossa-kissalu.png" alt="Logo officiel Sossa Kissalu" />
+          <div class="brand-text">
+            <strong>SOSSA KISSALU</strong>
+            <span>La Clé de l'Emploi</span>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/company/sossa-kissalu/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://wa.me/242044190188" target="_blank" rel="noopener">WhatsApp : +242 044 19 01 88</a>
+          <a href="tel:+242068202822">Tél : +242 068 20 28 22</a>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 Sossa Kissalu — La Clé de l'Emploi • Pointe-Noire, République du Congo.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
